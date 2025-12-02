@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include("partials/cabecalho.ejs") %>
+    <a class="btn btn-primary" href="/alunos">Relatório de alunos</a>
+    <a class="btn btn-warning" href="/alunos/cadastrar">Cadastrar alunos</a><br><br>
+    <%- include("partials/rodape.ejs") %>
+
+    <a class="btn btn-primary" href="/usuarios">Relatório de usuários</a>
+    <a class="btn btn-warning" href="/usuarios/cadastrar">Cadastrar usuários</a>
+    <%- include("partials/rodape.ejs") %>
+</body>
+</html>

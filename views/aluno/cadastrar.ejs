@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/cabecalho.ejs') %>
+    <div class="container">
+        <h2><%= aluno._id ? "Atualizar" : "Cadastrar" %> Aluno</h2>
+    <form action="<%= aluno._id ? "/alunos/editar" : "/alunos" %>" method="post">
+        <input type="hidden" name="_id" value="<%= aluno._id %>">
+        
+    <div>
+        <label class="form-label">Matrícula:</label>
+        <input class="form-control" type="text" name="mat" value="<%= aluno.mat %>" required>
+    </div>
+
+    <div>
+        <label class="form-label">Nome:</label>
+        <input class="form-control" type="text" name="nome" value="<%= aluno.nome %>" required>
+    </div>
+
+    <div>
+        <label class="form-label">Curso:</label>
+        <input class="form-control" type="text" name="curso" value="<%= aluno.curso %>" required>
+    </div><br>
+
+    <div>
+        <button type="submit" class="btn btn-success"> <%= aluno._id ? "Atualizar" : "Salvar" %></button>
+        <a href="/" class="btn btn-primary">Voltar</a>
+    </div>
+</form>
+</div>
+
+    <%- include("../partials/rodape.ejs") %>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/cabecalho.ejs') %>
+
+    <% if (status == "1") { %>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"  ></button>
+            Cadastrado com <b>sucesso.</b> </div>
+    <% } %>
+
+    <% if (status == "2") { %>
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            Aluno removido com<b> sucesso!</b> </div>
+    <% } %>
+     
+    <h2>Relatório de Alunos</h2>
+<table class="table table-striped">
+    <thead>
+        <th>Matrícula</th>
+        <th>Nome</th>
+        <th>Curso</th>
+        <th>Detalhar</th>
+        <th>Atualizar</th>
+        <th>Excluir</th>
+        
+    </thead>
+    <% alunos.forEach(aluno =>{%>
+    <tr>
+        <td><%=aluno.mat%></td>
+        <td><%=aluno.nome%></td>
+        <td><%=aluno.curso%></td>
+        <td><a href="/alunos/<%=aluno.mat%>" class="btn btn-info">Detalhar</a></td>
+        <td><a href="/alunos/atualizar/<%= aluno.mat %>"class="btn btn-warning">Atualizar</a></td>
+        <td><a href="/alunos/excluir/<%= aluno.mat %>"class="btn btn-danger" onclick="return confirm ('Deseja remover o aluno ? ')">Excluir</a></td>
+        
+    </tr>
+    <% }) %>
+    <%- include("../partials/rodape.ejs") %>
+    
+</body>
+</html>

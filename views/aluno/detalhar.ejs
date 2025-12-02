@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/cabecalho.ejs') %>
+    <% if (aluno) { %>
+        <div>
+            Nome: <%= aluno.nome %>
+        </div>
+        <div>
+            Curso: <%= aluno.curso %>
+        </div>
+        <div>
+            Matrícula: <%= aluno.mat %>
+        </div>
+        
+    <% } else { %>
+        <h2>Aluno não encontrado</h2>
+        <% } %>
+
+        <a href="/alunos" class="btn btn-primary">Voltar</a>
+        <%- include("../partials/rodape.ejs") %>
+</body>
+</html>
