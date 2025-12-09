@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/cabecalho.ejs') %>
+
+    <% if (status == "1") { %>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"  ></button>
+            Cadastrado com <b>sucesso.</b> </div>
+    <% } %>
+
+    <% if (status == "2") { %>
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            Atleta removido com<b> sucesso!</b> </div>
+    <% } %>
+     
+    <h2>Relatório de Atletas</h2>
+<table class="table table-striped">
+    <thead>
+        <th>Matrícula</th>
+        <th>Nome</th>
+        <th>Biotipo</th>
+        <th>Detalhar</th>
+        <th>Atualizar</th>
+        <th>Excluir</th>
+        
+    </thead>
+    <% atletas.forEach(atleta =>{%>
+    <tr>
+        <td><%=atleta.mat%></td>
+        <td><%=atleta.nome%></td>
+        <td><%=atleta.biotipo%></td>
+        <td><a href="/atletas/<%=atleta.mat%>" class="btn btn-info">Detalhar</a></td>
+        <td><a href="/atletas/atualizar/<%= atleta.mat %>"class="btn btn-warning">Atualizar</a></td>
+        <td><a href="/atletas/excluir/<%= atleta.mat %>"class="btn btn-danger" onclick="return confirm ('Deseja remover o atleta ? ')">Excluir</a></td>
+        
+    </tr>
+    <% }) %>
+    <%- include("../partials/rodape.ejs") %>
+    
+</body>
+</html>

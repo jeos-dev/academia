@@ -16,8 +16,11 @@ app.use(session({
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_URI);
 
-const alunoRoutes = require("./routes/alunoRoutes");
-app.use(alunoRoutes);
+const atletaRoutes = require("./routes/atletaRoutes");
+app.use(atletaRoutes);
+
+const personalRoutes = require("./routes/personalRoutes");
+app.use(personalRoutes);
 
 const usuarioRoutes = require("./routes/usuarioRoutes");
 app.use(usuarioRoutes);
